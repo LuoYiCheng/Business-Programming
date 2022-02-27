@@ -80,11 +80,13 @@ print(total_cover_pop)
 
 # 運算時間0.011315584182739258
 
-# Debug 2022/2/26
-# 一開始我選擇建立了一個un_build_list去存放還沒建造基地台的城鎮，這樣在跑i層迴圈的時候就可以只針對那些還沒被建造的城鎮運算就好，希望能夠提高運算效率
-# 不過遇到了一個問題是，隨著un_build_list的數量越來越少，導致line64的
-    # for town in whole_cover_list[build_station]:
-    #     pop_list[town] = 0 
-# 發生了index error，原因是whole_cover_list也越來越短，當whole_cover_list需要索引到編號更大的i時，已經超出了list的長度，針對該問題我尚未想到解決方案
-# 但是我想到如果直接捨棄建立un_build_list的方法，也能達到我們想要的結果，因為我們會隨著每次迴圈把每個城鎮未涵蓋的人數減掉，只是比較麻煩的是每次都要針對
-# 全部的城鎮重算一次，如果我有想出解決上述的方法再來比較運算速率唄
+""" 
+Debug 2022/2/26
+一開始我選擇建立了一個un_build_list去存放還沒建造基地台的城鎮，這樣在跑i層迴圈的時候就可以只針對那些還沒被建造的城鎮運算就好，希望能夠提高運算效率
+不過遇到了一個問題是，隨著un_build_list的數量越來越少，導致line64的
+    for town in whole_cover_list[build_station]:
+        pop_list[town] = 0 
+發生了index error，原因是whole_cover_list也越來越短，當whole_cover_list需要索引到編號更大的i時，已經超出了list的長度，針對該問題我尚未想到解決方案
+但是我想到如果直接捨棄建立un_build_list的方法，也能達到我們想要的結果，因為我們會隨著每次迴圈把每個城鎮未涵蓋的人數減掉，只是比較麻煩的是每次都要針對
+全部的城鎮重算一次，如果我有想出解決上述的方法再來比較運算速率唄
+"""
